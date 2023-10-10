@@ -19,6 +19,7 @@ steps:
                "name": "_testdemo (1)",
                "version": "1.$(Build.BuildId)",
                "semanticVersion": "1.$(Build.BuildId).0",
+               "BuildNumber": "$(Build.BuildNumber)",
                "repositoryName": "testdemo (1)"
             }
          ]
