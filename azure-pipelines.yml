@@ -1,26 +1,22 @@
 # Starter pipeline
-- task: ServiceNow-DevOps-Server-Change-Acceleration@1
+- task: ServiceNow-DevOps-Agent-Artifact-Registration@1
   inputs:
     connectedServiceName: 'devops service connection'
-    changeRequestDetails: |
-      {
-          "setCloseCode" : true,
-          "attributes": {
-      "type": "normal",
-      "category": "DevOps",
-      "devops_change":"1"
-      "cmdb_ci": "CMS App FLX",
-      "short_description": "Test CR from ADO",
-      "description": "Test CR from ADO using ServiceNow DevOps",
-      "comments": "TEST comment added",
-      "priority": "3",
-            "requested_by": {
-              "user_name": "devops.integration.user"
+    artifactsPayload: |
+      "artifacts": [
+            {
+               "name": "<artifact name>",
+               "version": "1.$(Build.BuildId)",
+               "semanticVersion": "1.$(Build.BuildId).0",
+               "repositoryName": "<artifact repository name>"
             },
-            "start_date": "2023-10-31T07:56:59Z",
-            "end_date": "2023-10-31T08:01:59Z"
-          }
-        }
+            {
+               "name": "<artifact name>",
+               "version": "1.$(Build.BuildId)",
+               "semanticVersion": "1.$(Build.BuildId).0",
+               "repositoryName": "<artifact repository name>"
+            }
+         ]
 - task: ServiceNow-DevOps-Server-Change-Acceleration@1
   inputs:
 # Start with a minimal pipeline that you can customize to build and deploy your code.
