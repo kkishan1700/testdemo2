@@ -1,16 +1,4 @@
 # Starter pipeline
-- task: ServiceNow-DevOps-Agent-Artifact-Registration@1
-  inputs:
-    connectedServiceName: 'devops service connection'
-    artifactsPayload: |
-      "artifacts": [
-            {
-               "name": "_testdemo (1)",
-               "version": "1.$(Build.BuildId)",
-               "semanticVersion": "1.$(Build.BuildId).0",
-               "repositoryName": "testdemo (1)"
-            }
-         ]
 - task: ServiceNow-DevOps-Server-Change-Acceleration@1
   inputs:
 # Start with a minimal pipeline that you can customize to build and deploy your code.
@@ -23,8 +11,19 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
+steps: 
+- task: ServiceNow-DevOps-Agent-Artifact-Registration@1
+  inputs:
+    connectedServiceName: 'devops service connection'
+    artifactsPayload: |
+      "artifacts": [
+            {
+               "name": "_testdemo (1)",
+               "version": "1.$(Build.BuildId)",
+               "semanticVersion": "1.$(Build.BuildId).0",
+               "repositoryName": "testdemo (1)"
+            }
+         ]
   displayName: 'Run a one-line script'
 
 - script: |
