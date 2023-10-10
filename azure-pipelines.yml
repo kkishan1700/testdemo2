@@ -1,6 +1,28 @@
 # Starter pipeline
 - task: ServiceNow-DevOps-Server-Change-Acceleration@1
   inputs:
+    connectedServiceName: 'devops service connection'
+    changeRequestDetails: |
+      {
+          "setCloseCode" : true,
+          "attributes": {
+      "type": "normal",
+      "category": "DevOps",
+      "devops_change":"1"
+      "cmdb_ci": "CMS App FLX",
+      "short_description": "Test CR from ADO",
+      "description": "Test CR from ADO using ServiceNow DevOps",
+      "comments": "TEST comment added",
+      "priority": "3",
+            "requested_by": {
+              "user_name": "devops.integration.user"
+            },
+            "start_date": "2023-10-31T07:56:59Z",
+            "end_date": "2023-10-31T08:01:59Z"
+          }
+        }
+- task: ServiceNow-DevOps-Server-Change-Acceleration@1
+  inputs:
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
