@@ -5,16 +5,10 @@
     artifactsPayload: |
       "artifacts": [
             {
-               "name": "<artifact name>",
+               "name": "_testdemo (1)",
                "version": "1.$(Build.BuildId)",
                "semanticVersion": "1.$(Build.BuildId).0",
-               "repositoryName": "<artifact repository name>"
-            },
-            {
-               "name": "<artifact name>",
-               "version": "1.$(Build.BuildId)",
-               "semanticVersion": "1.$(Build.BuildId).0",
-               "repositoryName": "<artifact repository name>"
+               "repositoryName": "testdemo (1)"
             }
          ]
 - task: ServiceNow-DevOps-Server-Change-Acceleration@1
